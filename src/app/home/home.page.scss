@@ -1,1 +1,17 @@
-
+.jumbotron {
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.title-secondary {
+  font-size: 2rem;
+}
+.title-primary {
+  font-size: 4rem;
+}
+.difference-in-day {
+  margin-bottom: 2rem;
+}

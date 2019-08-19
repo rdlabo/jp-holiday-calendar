@@ -1,14 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      祝祭日カレンダー
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="jumbotron">
+      <div *ngIf="differenceInDay > 0" class="difference-in-day">
+        <span class="title-secondary">次の祭日まで</span><br/>
+        <span class="title-primary">あと {{ differenceInDay }} 日</span>
+      </div>
+      <h1>{{ upcomingHoliday.day }} {{ upcomingHoliday.name }}</h1>
+      <p>{{ holiday.mainText }}</p>
+    </div>
+    <div class="ion-padding">
+    <h1>この先の祭日（年内限定）</h1>
+    <ion-list *ngFor="let hold of holidays">
+      <ion-item>
+        <ion-label>{{ hold.name }}</ion-label>
+        <p>{{ hold.day }}</p>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
